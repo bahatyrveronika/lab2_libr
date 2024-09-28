@@ -21,7 +21,7 @@ $(STATIC_LIB): $(OBJ)
 
 # Динамічна бібліотека
 $(DYNAMIC_LIB): $(OBJ)
-	$(CC) -shared -o $@ $^
+	$(CC) -shared -o -fPIC $@ $^
 
 # Правила для компіляції об'єктних файлів
 %.o: %.c
