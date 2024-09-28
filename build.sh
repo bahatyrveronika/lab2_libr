@@ -1,36 +1,29 @@
-#!/bin/bash
-
-# Параметри
 LIB_DIR="./library"
 EXAMPLES_DIR="./examples"
-OBJ_DIR="$LIB_DIR/obj"
 
-# Створення директорії для об'єктних файлів, якщо вона не існує
-mkdir -p "$OBJ_DIR"
-
-# Функція для компіляції бібліотеки
+# compile the library
 compile_library() {
-    echo "Компіліруємо бібліотеку Bzip2..."
+    echo "Compiling Bzip2 library..."
 
-    # Параметри компіляції
-    gcc -Wall -Wextra -fPIC -c $LIB_DIR/*.c -o "$OBJ_DIR/%.o"
+    # Compile source files to object files
+    gcc -Wall -Wextra -fPIC -c "$LIB_DIR"/*.c
 
-    # Створення статичної та динамічної бібліотеки
-    ar rcs "$LIB_DIR/libbz2.a" "$OBJ_DIR/*.o"
-    gcc -shared -o "$LIB_DIR/libbz2.so" "$OBJ_DIR/*.o"
+    # static and dynamic libraries
+    ar rcs "$LIB_DIR/libbz2.a" "$LIB_DIR"/*.o
+    gcc -shared -o "$LIB_DIR/libbz2.so" "$LIB_DIR"/*.o
 
-    echo "Бібліотека успішно скомпільована."
+    echo "Library compiled successfully."
 }
 
-# Функція для компіляції прикладів
+# Function to compile examples
 compile_examples() {
-    echo "Компіліруємо приклади..."
+    echo "Compiling examples..."
     make -C "$EXAMPLES_DIR"
-    echo "Приклади успішно скомпільовані."
+    echo "Examples compiled successfully."
 }
 
-# Запуск функцій
+# Execute functions
 compile_library
 compile_examples
 
-echo "Проект успішно скомпільований!"
+echo "Project compiled successfully!"

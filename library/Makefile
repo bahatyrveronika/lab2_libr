@@ -1,6 +1,3 @@
-# Makefile для бібліотеки Bzip2
-
-# Визначення змінних
 CC = gcc
 CFLAGS = -Wall -Wextra -fPIC
 AR = ar
@@ -9,7 +6,8 @@ ARFLAGS = rcs
 # Список вихідних файлів
 SRC = blocksort.c bzlib.c compress.c crctable.c decompress.c huffman.c randtable.c
 OBJ = $(SRC:.c=.o)
-
+OBJ_DIR = obj
+LIB_DIR = ../library
 # Ім'я статичної і динамічної бібліотеки
 STATIC_LIB = libbz2.a
 DYNAMIC_LIB = libbz2.so
@@ -34,3 +32,4 @@ clean:
 	rm -f $(OBJ) $(STATIC_LIB) $(DYNAMIC_LIB)
 
 .PHONY: all clean
+

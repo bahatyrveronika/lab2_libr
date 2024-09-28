@@ -1,4 +1,4 @@
-CC = clang        # Замість clang++ використовуємо clang
+#CC = clang        # Замість clang++ використовуємо clang
 #CFLAGS = -Wall -Wextra -g -I . -std=c11   # Оновлено CFLAGS для C-коду
 #LIBS = -L../library -lbz2
 #DYLD_LIBRARY_PATH=../library ./bzip2
