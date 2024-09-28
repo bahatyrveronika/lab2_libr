@@ -13,4 +13,4 @@ set(LIBRARY_SOURCES
 add_library(bz2 STATIC ${LIBRARY_SOURCES})
 
 # Optionally set include directories for the library
-target_include_directories(bz2 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+# target_include_directories(bz2 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
